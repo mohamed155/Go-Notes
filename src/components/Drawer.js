@@ -1,5 +1,7 @@
 import React, {PureComponent} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {Avatar, Button} from "react-native-paper";
+import images from "../common/images";
 
 class Drawer extends PureComponent {
 
@@ -11,7 +13,17 @@ class Drawer extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Drawer</Text>
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          <View style={styles.accountContainer}>
+            <View style={styles.avatarWrapper}>
+              <Avatar.Image size={50} source={images.userIcon} />
+            </View>
+            <View style={styles.acountRight}>
+              <Text>Guest</Text>
+              <Button mode="text" onPress={() => alert('login pressed')}>Login</Button>
+            </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -23,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFF',
   },
   welcome: {
     fontSize: 20,

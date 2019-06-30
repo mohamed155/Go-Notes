@@ -1,9 +1,25 @@
+import React from 'react';
 import {Navigation} from "react-native-navigation";
+import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from "./src/screens/HomeScreen";
 import Drawer from "./src/components/Drawer";
+import config from './src/common/config';
 
-Navigation.registerComponent(`navigation.AppScreen`, () => HomeScreen);
-Navigation.registerComponent(`navigation.Drawer`, () => Drawer);
+Navigation.registerComponent(`navigation.AppScreen`,
+  () => (props) => (
+    <PaperProvider theme={config.theme}>
+      <HomeScreen {...props}/>
+    </PaperProvider>
+  ),
+  () => HomeScreen);
+
+Navigation.registerComponent(`navigation.Drawer`,
+  () => (props) => (
+    <PaperProvider theme={config.theme}>
+      <Drawer {...props}/>
+    </PaperProvider>
+  ),
+  () => Drawer);
 
 export default () => {
   Navigation.setRoot({
