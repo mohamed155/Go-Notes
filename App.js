@@ -4,8 +4,9 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from "./src/screens/HomeScreen";
 import Drawer from "./src/components/Drawer";
 import config from './src/common/config';
+import LoginScreen from "./src/screens/LoginScreen";
 
-Navigation.registerComponent(`navigation.AppScreen`,
+Navigation.registerComponent(`navigation.Home`,
   () => (props) => (
     <PaperProvider theme={config.theme}>
       <HomeScreen {...props}/>
@@ -21,6 +22,14 @@ Navigation.registerComponent(`navigation.Drawer`,
   ),
   () => Drawer);
 
+Navigation.registerComponent(`navigation.Login`,
+  () => (props) => (
+    <PaperProvider theme={config.theme}>
+      <LoginScreen {...props}/>
+    </PaperProvider>
+  ),
+  () => LoginScreen);
+
 export default () => {
   Navigation.setRoot({
     root: {
@@ -34,11 +43,11 @@ export default () => {
         },
         center: {
           stack: {
-            id: "AppRoot",
+            id: "MainStack",
             children: [{
               component: {
-                id: "App",
-                name: "navigation.AppScreen"
+                id: "HomeScreen",
+                name: "navigation.Home"
               }
             }]
           }
