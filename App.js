@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Navigation} from "react-native-navigation";
 import {Provider as PaperProvider} from 'react-native-paper';
 import HomeScreen from "./src/screens/HomeScreen";
@@ -9,6 +10,7 @@ import LoginScreen from "./src/screens/LoginScreen";
 Navigation.registerComponent(`navigation.Home`,
   () => (props) => (
     <PaperProvider theme={config.theme}>
+
       <HomeScreen {...props}/>
     </PaperProvider>
   ),

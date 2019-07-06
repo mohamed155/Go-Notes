@@ -5,7 +5,7 @@ import colors from "../common/colors";
 import {Navigation} from "react-native-navigation";
 import {withTheme} from "react-native-paper";
 
-class LoginScreen extends Component<Props> {
+class LoginScreen extends Component {
 
   static options(passProps) {
     return {

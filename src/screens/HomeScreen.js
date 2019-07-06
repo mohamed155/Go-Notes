@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, ScrollView, StatusBar } from 'react-native';
 import images from "../common/images";
 import colors from "../common/colors";
-import {Navigation} from "react-native-navigation";
-import {withTheme, Button, Card, Title, Paragraph, Avatar} from "react-native-paper";
+import { Navigation } from "react-native-navigation";
+import { withTheme, Button, Card, Title, Paragraph, Avatar } from "react-native-paper";
 
-class HomeScreen extends Component<Props> {
+class HomeScreen extends Component {
 
   static options(passProps) {
     return {
@@ -14,6 +14,8 @@ class HomeScreen extends Component<Props> {
           text: 'Notes',
           color: '#fff'
         },
+        searchBar: true,
+        searchBarHiddenWhenScrolling: true,
         leftButtons: [
           {
             id: 'menuBtn',
@@ -114,7 +116,7 @@ class HomeScreen extends Component<Props> {
     Navigation.events().bindComponent(this);
   }
 
-  navigationButtonPressed({buttonId}) {
+  navigationButtonPressed({ buttonId }) {
     if (buttonId === 'menuBtn') {
       Navigation.mergeOptions('Drawer', {
         sideMenu: {
@@ -142,6 +144,7 @@ class HomeScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar translucent backgroundColor={'#fff'}/> 
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           {
             this.state.notes.map((note) => (
