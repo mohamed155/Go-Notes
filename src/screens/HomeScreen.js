@@ -4,11 +4,13 @@ import images from "../common/images";
 import colors from "../common/colors";
 import { Navigation } from "react-native-navigation";
 import { withTheme, Button, Card, Title, Paragraph, Avatar } from "react-native-paper";
+import SplashScreen from 'react-native-splash-screen';
 
 class HomeScreen extends Component {
 
   static options(passProps) {
     return {
+      statusBarStyle: 'light',
       topBar: {
         title: {
           text: 'Notes',
@@ -116,6 +118,10 @@ class HomeScreen extends Component {
     Navigation.events().bindComponent(this);
   }
 
+  componentDidMount() {
+    SplashScreen.hide()
+  }
+
   navigationButtonPressed({ buttonId }) {
     if (buttonId === 'menuBtn') {
       Navigation.mergeOptions('Drawer', {
@@ -144,7 +150,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar translucent backgroundColor={'#fff'}/> 
+        <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           {
             this.state.notes.map((note) => (

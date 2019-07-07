@@ -10,7 +10,6 @@ import LoginScreen from "./src/screens/LoginScreen";
 Navigation.registerComponent(`navigation.Home`,
   () => (props) => (
     <PaperProvider theme={config.theme}>
-
       <HomeScreen {...props}/>
     </PaperProvider>
   ),
