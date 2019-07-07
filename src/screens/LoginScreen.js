@@ -63,7 +63,10 @@ class LoginScreen extends Component {
           <View style={styles.buttonWrapper}>
             <Button style={styles.blockBtn} mode="contained" onPress={() => alert('login pressed')}>Login</Button>
           </View>
-
+          <View style={styles.signupWrapper}>
+            <Text style={styles.signupText}>Do not have account? </Text>
+            <Button style={styles.signupBtn} mode="text" onPress={() => alert('signup pressed')} >Sign up Now</Button>
+          </View>
         </ScrollView>
       </View>
     );
@@ -97,7 +100,7 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     borderRadius: 5,
     flexDirection: 'row',
-    padding: 5
+    padding: 0
   },
   textInput: {
     flex: 1,
@@ -105,9 +108,9 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     tintColor: colors.primary,
-    width: 32,
-    height: 32,
-    margin: 10
+    width: 24,
+    height: 24,
+    margin: 15
   },
   assistiveText: {
     marginLeft: 20,
@@ -123,6 +126,13 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     width: 300
+  },
+  signupWrapper: {
+    flexDirection: 'row',
+    marginTop: 30
+  },
+  signupText: {
+    marginVertical: 10
   }
 });
 
