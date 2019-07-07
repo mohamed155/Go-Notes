@@ -5,7 +5,9 @@ const images = {
   moreIcon: require('../images/icons/show-more-button-with-three-dots.png'),
   userIcon: require('../images/icons/user-icon.jpg'),
   backIcon: require('../images/icons/go-back-left-arrow.png'),
-  logoImage: require('../images/logo.png')
+  logoImage: require('../images/logo.png'),
+  mailIcon: require('../images/icons/message.png'),
+  lockIcon: require('../images/icons/locked-padlock-outline.png')
 };
 
 export default images;

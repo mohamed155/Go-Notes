@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView, Image, TextInput} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Image, TextInput} from 'react-native';
 import images from "../common/images";
 import colors from "../common/colors";
 import {Navigation} from "react-native-navigation";
-import {withTheme} from "react-native-paper";
+import {withTheme, Button} from "react-native-paper";
 
 class LoginScreen extends Component<Props> {
 
@@ -48,12 +48,22 @@ class LoginScreen extends Component<Props> {
           </View>
           <View style={styles.inputWrapper}>
             <View style={styles.inputBox}>
-              <TextInput style={styles.textInput}/>
+              <Image source={images.mailIcon} style={styles.inputIcon} />
+              <TextInput style={styles.textInput} placeholder="Email"/>
             </View>
+            <Text style={styles.assistiveText}>Assistive text</Text>
           </View>
           <View style={styles.inputWrapper}>
-
+            <View style={styles.inputBox}>
+              <Image source={images.lockIcon} style={styles.inputIcon} />
+              <TextInput style={styles.textInput} placeholder="Password" secureTextEntry/>
+            </View>
+            <Text style={styles.assistiveText}>Assistive text</Text>
           </View>
+          <View style={styles.buttonWrapper}>
+            <Button style={styles.blockBtn} mode="contained" onPress={() => alert('login pressed')}>Login</Button>
+          </View>
+
         </ScrollView>
       </View>
     );
@@ -67,19 +77,52 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
-    padding: 10
+    padding: 15
+  },
+  logoWrapper: {
+    marginTop: 20,
+    marginBottom: 20
+  },
+  logoImage: {
+    width: 123,
+    height: 130,
   },
   inputWrapper: {
-    width: '100%'
+    width: '100%',
+    marginVertical: 20
   },
   inputBox: {
     flex: 1,
     borderWidth: 2,
     borderColor: colors.primary,
-    borderRadius: 10
+    borderRadius: 5,
+    flexDirection: 'row',
+    padding: 5
   },
   textInput: {
-    flex: 1
+    flex: 1,
+    fontSize: 18
+  },
+  inputIcon: {
+    tintColor: colors.primary,
+    width: 32,
+    height: 32,
+    margin: 10
+  },
+  assistiveText: {
+    marginLeft: 20,
+    color: colors.primary
+  },
+  buttonWrapper: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    marginVertical: 10
+  },
+  blockBtn: {
+    height: 50,
+    justifyContent: 'center',
+    width: 300
   }
 });
 

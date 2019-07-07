@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import {Avatar, Button, List, Divider} from "react-native-paper";
+import {Avatar, Button, List, Divider, withTheme} from "react-native-paper";
 import images from "../common/images";
 import {Navigation} from "react-native-navigation";
 
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Drawer;
+export default withTheme(Drawer);
