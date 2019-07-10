@@ -116,6 +116,7 @@ class HomeScreen extends Component {
       ]
     };
     Navigation.events().bindComponent(this);
+    this.openNote = this.openNote.bind(this);
   }
 
   componentDidMount() {
@@ -134,18 +135,26 @@ class HomeScreen extends Component {
     }
   }
 
-  renderNote(note) {
-    return (
-      <View style={styles.cardWrapper} key={note.id}>
-        <Card style={styles.card}>
-          <Card.Title title={note.title} />
-          <Card.Content>
-            <Paragraph>{note.content}</Paragraph>
-          </Card.Content>
-        </Card>
-      </View>
-    );
+  openNote() {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'navigation.Note'
+      }
+    })
   }
+
+  // renderNote(note) {
+  //   return (
+  //     <View style={styles.cardWrapper} key={note.id}>
+  //       <Card style={styles.card}>
+  //         <Card.Title title={note.title} />
+  //         <Card.Content>
+  //           <Paragraph>{note.content}</Paragraph>
+  //         </Card.Content>
+  //       </Card>
+  //     </View>
+  //   );
+  // }
 
   render() {
     return (
@@ -155,7 +164,7 @@ class HomeScreen extends Component {
           {
             this.state.notes.map((note) => (
               <View style={styles.cardWrapper} key={note.id}>
-                <Card style={styles.card} onPress={() => alert('Card pressed')}>
+                <Card style={styles.card} onPress={this.openNote}>
                   <Card.Title title={note.title} />
                   <Card.Content>
                     <Paragraph>{note.content}</Paragraph>

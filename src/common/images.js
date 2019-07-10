@@ -7,7 +7,10 @@ const images = {
   backIcon: require('../images/icons/go-back-left-arrow.png'),
   logoImage: require('../images/logo.png'),
   mailIcon: require('../images/icons/message.png'),
-  lockIcon: require('../images/icons/locked-padlock-outline.png')
+  lockIcon: require('../images/icons/locked-padlock-outline.png'),
+  unlockIcon: require('../images/icons/unlocked-padlock.png'),
+  undoIcon: require('../images/icons/undo.png'),
+  redoIcon: require('../images/icons/redo.png')
 };
 
 export default images;

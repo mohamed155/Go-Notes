@@ -6,6 +6,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import Drawer from "./src/components/Drawer";
 import config from './src/common/config';
 import LoginScreen from "./src/screens/LoginScreen";
+import NoteScreen from "./src/screens/NoteScreen";
 
 Navigation.registerComponent(`navigation.Home`,
   () => (props) => (
@@ -30,6 +31,14 @@ Navigation.registerComponent(`navigation.Login`,
     </PaperProvider>
   ),
   () => LoginScreen);
+
+Navigation.registerComponent(`navigation.Note`,
+  () => (props) => (
+    <PaperProvider theme={config.theme}>
+      <NoteScreen {...props}/>
+    </PaperProvider>
+  ),
+  () => NoteScreen);
 
 export default () => {
   Navigation.setRoot({
